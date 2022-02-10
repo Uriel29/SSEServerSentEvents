@@ -1,0 +1,44 @@
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+    <title>SSE</title>
+    </head>
+
+    <body>
+
+    <h1>About Us</h1>
+    <p>TIMER DIRETO DO SERVIDOR</p>
+        <div class="content"></div>
+
+
+    <script>
+
+        //faço um ajax para o criar um usário. 
+        //uso baco de dados MongoDB 
+        
+       
+            
+        //https://developer.mozilla.org/pt-BR/docs/Web/API/EventSource
+        const source = new EventSource('/eventos');
+        
+        source.addEventListener('message', message => {
+        
+        console.log('Serve sent', message);
+        
+        // Display the event data in the `content` div
+        document.querySelector(".content").innerHTML = message.data;
+        
+        
+        })
+        
+    
+        
+
+    </script>
+
+    </body>
+    </html> 
+
+
+    
